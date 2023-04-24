@@ -1,0 +1,5 @@
+{
+	"name": "@nicholan/prettier-config-custom",
+	"main": "prettier.config.js",
+	"version": "1.0.0"
+}

@@ -1,0 +1,14 @@
+{
+	"name": "configs",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Configuration files",
+	"keywords": [],
+	"author": "Nicholas Anttila",
+	"license": "ISC",
+	"dependencies": {
+		"@nicholan/prettier-config-custom": "file:./prettier-config-custom",
+		"prettier": "latest"
+	},
+	"prettier": "@nicholan/prettier-config-custom"
+}

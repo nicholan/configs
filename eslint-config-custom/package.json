@@ -1,0 +1,16 @@
+{
+	"name": "@nicholan/eslint-config-custom",
+	"main": "eslint.config.js",
+	"version": "1.0.0",
+	"files": [
+		"eslint.config.js, eslint.prettier.js, eslint.react.js"
+	],
+	"dependencies": {
+		"eslint": "latest",
+		"eslint-config-prettier": "latest",
+		"eslint-plugin-react": "latest",
+		"eslint-plugin-react-hooks": "latest",
+		"@typescript-eslint/eslint-plugin": "latest",
+		"@typescript-eslint/parser": "latest"
+	}
+}
