@@ -1,5 +1,9 @@
 {
 	"name": "@nicholan/prettier-config-custom",
-	"main": "prettier.config.js",
+	"main": "prettier.config.mjs",
+	"engines": {
+		"node": ">=14.17.0"
+	},
+	"type": "module",
 	"version": "1.0.0"
 }

@@ -1,10 +1,13 @@
 {
 	"name": "@nicholan/eslint-config-custom",
-	"main": "eslint.config.js",
-	"version": "1.0.0",
-	"files": [
-		"eslint.config.js, eslint.prettier.js, eslint.react.js"
-	],
+	"main": "../lib/cjs/esling-config-custom/index.js",
+	"types": "../lib/cjs/types/esling-config-custom/index.js",
+	"files": ["../lib/cjs/esling-config-custom/"],
+	"version": "1.0.3",
+	"engines": {
+		"node": ">=14.17.0"
+	},
+	"type": "module",
 	"dependencies": {
 		"eslint": "latest",
 		"eslint-config-prettier": "latest",
