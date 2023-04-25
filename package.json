@@ -1,27 +1,22 @@
 {
-	"name": "configs",
-	"version": "1.0.0",
-	"private": true,
-	"description": "Configuration files",
-	"keywords": [],
-	"scripts": {
-		"publish-prettier": "cd prettier-config-custom/ && npm publish --access public",
-		"publish-eslint": "cd eslint-config-custom/ && npm publish --access public",
-		"publish-tsconfig": "cd ts-config-custom/ && npm publish --access public",
-		"clean": "rm -rf ./lib",
-		"build": "npm run clean && npm run build:esm && npm run build:cjs",
-		"build:esm": "tsc -p ./tsconfig.esm.json && node changeSuffix.js",
-		"build:cjs": "tsc -p ./tsconfig.cjs.json",
-		"prepack": "npm run build"
-	},
-	"author": "Nicholas Anttila",
-	"license": "ISC",
-	"dependencies": {
-		"@nicholan/prettier-config-custom": "file:./prettier-config-custom",
-		"prettier": "latest"
-	},
-	"prettier": "@nicholan/prettier-config-custom",
-	"devDependencies": {
-		"typescript": "^5.0.4"
-	}
+  "name": "configs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Configuration files",
+  "keywords": [],
+  "scripts": {
+    "build:eslint": "cd ./eslint-config-custom && npm run prepack",
+    "build:prettier": "cd ./prettier-config-custom && npm run prepack",
+    "build:all": "npm run build:eslint && npm run build:prettier"
+  },
+  "author": "Nicholas Anttila",
+  "license": "ISC",
+  "dependencies": {
+    "@nicholan/prettier-config-custom": "latest",
+    "prettier": "latest"
+  },
+  "prettier": "@nicholan/prettier-config-custom",
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  }
 }

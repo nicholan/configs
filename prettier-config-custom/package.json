@@ -1,9 +1,29 @@
 {
-	"name": "@nicholan/prettier-config-custom",
-	"main": "prettier.config.mjs",
-	"engines": {
-		"node": ">=14.17.0"
-	},
-	"type": "module",
-	"version": "1.0.0"
+  "name": "@nicholan/prettier-config-custom",
+  "main": "./lib/cjs/index.js",
+  "types": "./lib/cjs/types/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/esm/types/index.d.ts",
+        "default": "./lib/esm/index.mjs"
+      },
+      "require": {
+        "types": "./lib/cjs/types/index.d.ts",
+        "default": "./lib/cjs/index.js"
+      }
+    }
+  },
+  "scripts": {
+    "clean": "rm -rf ./lib",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc -p ./tsconfig.esm.json && npm run js:mjs",
+	"js:mjs": "node ../cfg/chExtension.js ./lib/esm .js .mjs",
+    "build:cjs": "tsc -p ./tsconfig.cjs.json",
+    "prepack": "npm run build"
+  },
+  "version": "1.1.0"
 }

@@ -1,19 +1,37 @@
 {
-	"name": "@nicholan/eslint-config-custom",
-	"main": "../lib/cjs/esling-config-custom/index.js",
-	"types": "../lib/cjs/types/esling-config-custom/index.js",
-	"files": ["../lib/cjs/esling-config-custom/"],
-	"version": "1.0.3",
-	"engines": {
-		"node": ">=14.17.0"
-	},
-	"type": "module",
-	"dependencies": {
-		"eslint": "latest",
-		"eslint-config-prettier": "latest",
-		"eslint-plugin-react": "latest",
-		"eslint-plugin-react-hooks": "latest",
-		"@typescript-eslint/eslint-plugin": "latest",
-		"@typescript-eslint/parser": "latest"
-	}
+  "name": "@nicholan/eslint-config-custom",
+  "main": "./lib/cjs/index.js",
+  "types": "./lib/cjs/types/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/esm/types/index.d.ts",
+        "default": "./lib/esm/index.mjs"
+      },
+      "require": {
+        "types": "./lib/cjs/types/index.d.ts",
+        "default": "./lib/cjs/index.js"
+      }
+    }
+  },
+  "version": "1.1.0",
+  "scripts": {
+    "clean": "rm -rf ./lib",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc -p ./tsconfig.esm.json && npm run js:mjs",
+    "js:mjs": "node ../cfg/chExtension.js ./lib/esm .js .mjs",
+    "build:cjs": "tsc -p ./tsconfig.cjs.json",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "eslint": "latest",
+    "eslint-config-prettier": "latest",
+    "eslint-plugin-react": "latest",
+    "eslint-plugin-react-hooks": "latest",
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest"
+  }
 }
