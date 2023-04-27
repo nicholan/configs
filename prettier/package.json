@@ -1,0 +1,29 @@
+{
+	"name": "@nicholan/prettier",
+	"main": "./lib/cjs/prettier.config.cjs",
+	"types": "./lib/cjs/types/prettier.config.d.ts",
+	"files": [
+		"./lib/**/*"
+	],
+	"exports": {
+		".": {
+			"import": {
+				"default": "./lib/esm/prettier.config.js",
+				"types": "./lib/esm/types/prettier.config.d.ts"
+			},
+			"require": {
+				"default": "./lib/cjs/prettier.config.cjs",
+				"types": "./lib/cjs/types/prettier.config.d.ts"
+			}
+		}
+	},
+	"scripts": {
+		"clean": "rm -rf ./lib",
+		"build": "npm run clean && npm run build:esm && npm run build:cjs",
+		"build:esm": "tsc -p ./tsconfig.esm.json",
+		"build:cjs": "tsc -p ./tsconfig.cjs.json && npm run js:cjs",
+		"js:cjs": "node ../cfg/chExtension.js ./lib/cjs .js .cjs",
+		"prepack": "npm run build"
+	},
+	"version": "1.0.2"
+}

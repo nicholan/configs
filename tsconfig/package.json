@@ -1,0 +1,13 @@
+{
+	"name": "@nicholan/tsconfig",
+	"main": "./tsconfig.json",
+	"exports": {
+		".": "./tsconfig.json"
+	},
+	"version": "1.0.0",
+	"files": [
+		"tsconfig.json",
+		"tsconfig.ts-node.json",
+		"tsconfig.react.json"
+	]
+}

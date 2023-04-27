@@ -1,0 +1,65 @@
+{
+	"name": "@nicholan/eslint-config",
+	"version": "1.0.3",
+	"files": [
+		"./lib/**/*"
+	],
+	"exports": {
+		".": {
+			"import": {
+				"default": "./lib/esm/base.js",
+				"types": "./lib/esm/types/base.d.ts"
+			},
+			"require": {
+				"default": "./lib/cjs/base.cjs",
+				"types": "./lib/cjs/types/base.d.ts"
+			}
+		},
+		"./react": {
+			"import": {
+				"default": "./lib/esm/react.js",
+				"types": "./lib/esm/types/react.d.ts"
+			},
+			"require": {
+				"default": "./lib/cjs/react.cjs",
+				"types": "./lib/cjs/types/react.d.ts"
+			}
+		},
+		"./prettier": {
+			"import": {
+				"default": "./lib/esm/prettier.js",
+				"types": "./lib/esm/types/prettier.d.ts"
+			},
+			"require": {
+				"default": "./lib/cjs/prettier.cjs",
+				"types": "./lib/cjs/types/prettier.d.ts"
+			}
+		},
+		"./rules": {
+			"import": {
+				"default": "./lib/esm/rules.js",
+				"types": "./lib/esm/types/rules.d.ts"
+			},
+			"require": {
+				"default": "./lib/cjs/rules.cjs",
+				"types": "./lib/cjs/types/rules.d.ts"
+			}
+		}
+	},
+	"scripts": {
+		"clean": "rm -rf ./lib",
+		"build": "npm run clean && npm run build:esm && npm run build:cjs",
+		"build:esm": "tsc -p ./tsconfig.esm.json",
+		"build:cjs": "tsc -p ./tsconfig.cjs.json && npm run js:cjs",
+		"js:cjs": "node ../cfg/chExtension.js ./lib/cjs .js .cjs",
+		"prepack": "npm run build"
+	},
+	"dependencies": {
+		"eslint": "latest",
+		"eslint-config-prettier": "latest",
+		"eslint-plugin-react": "latest",
+		"eslint-plugin-react-hooks": "latest",
+		"@typescript-eslint/eslint-plugin": "latest",
+		"@typescript-eslint/parser": "latest"
+	}
+}

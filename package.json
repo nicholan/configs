@@ -1,22 +1,17 @@
 {
-  "name": "configs",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Configuration files",
-  "keywords": [],
-  "scripts": {
-    "build:eslint": "cd ./eslint-config-custom && npm run prepack",
-    "build:prettier": "cd ./prettier-config-custom && npm run prepack",
-    "build:all": "npm run build:eslint && npm run build:prettier"
-  },
-  "author": "Nicholas Anttila",
-  "license": "ISC",
-  "dependencies": {
-    "@nicholan/prettier-config-custom": "latest",
-    "prettier": "latest"
-  },
-  "prettier": "@nicholan/prettier-config-custom",
-  "devDependencies": {
-    "typescript": "^5.0.4"
-  }
+	"name": "configs",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Configuration files",
+	"keywords": [],
+	"scripts": {
+		"build:eslint": "cd eslint/ && npm run prepack",
+		"build:prettier": "cd prettier/ && npm run prepack",
+		"build:all": "npm run build:eslint && npm run build:prettier"
+	},
+	"author": "Nicholas Anttila",
+	"license": "ISC",
+	"devDependencies": {
+		"typescript": "^5.0.4"
+	}
 }
